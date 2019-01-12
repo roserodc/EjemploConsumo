@@ -1,0 +1,1846 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Ping">
+        <s:complexType />
+      </s:element>
+      <s:element name="PingResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerStockBodega">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerStockBodegaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerStockBodegaResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="stockBodegas" type="tns:ArrayOfStockBodega" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStockBodega">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StockBodega" nillable="true" type="tns:StockBodega" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StockBodega">
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="Stock" type="s:int" use="required" />
+        <s:attribute name="NombreBodega" type="s:string" />
+        <s:attribute name="EsNuevo" type="s:boolean" use="required" />
+        <s:attribute name="EsModificado" type="s:boolean" use="required" />
+        <s:attribute name="EsBorrado" type="s:boolean" use="required" />
+        <s:attribute name="TimeStamp" type="s:string" />
+        <s:attribute default="0" name="IdLocal" type="s:int" />
+        <s:attribute name="TimeStampLocal" type="s:string" />
+      </s:complexType>
+      <s:element name="GuardarRecetas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="recetas" type="tns:ArrayOfReceta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfReceta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Receta" nillable="true" type="tns:Receta" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Receta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Prescripciones" type="tns:PrescripcionCollection" />
+          <s:element minOccurs="0" maxOccurs="1" name="DatoTercero" type="tns:DatoTercero" />
+        </s:sequence>
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="FechaGeneracion" type="s:long" use="required" />
+        <s:attribute name="TerminoVigencia" type="s:long" use="required" />
+        <s:attribute name="Estado" type="s:int" use="required" />
+        <s:attribute name="IdTipoReceta" type="s:int" use="required" />
+        <s:attribute name="RutUsuarioAps" type="s:string" />
+        <s:attribute name="RutResponsable" type="s:string" />
+        <s:attribute name="NumeroIdentificacion" type="s:string" />
+        <s:attribute name="NombreUsuarioAps" type="s:string" />
+        <s:attribute name="RutFuncionarioPrestador" type="s:string" />
+        <s:attribute name="NombreFuncionarioPrestador" type="s:string" />
+        <s:attribute name="FechaCita" type="s:long" use="required" />
+        <s:attribute name="IdRazonCita" type="s:int" use="required" />
+        <s:attribute name="IdNodo" type="s:int" use="required" />
+        <s:attribute name="IdFuncionarioPrestador" type="s:int" use="required" />
+        <s:attribute name="IdUsuarioAps" type="s:int" use="required" />
+        <s:attribute name="IdProgramaSalud" type="s:int" use="required" />
+        <s:attribute name="IdAtencion" type="s:int" use="required" />
+        <s:attribute name="IdCita" type="s:int" use="required" />
+        <s:attribute name="IdRecetaPadre" type="s:int" use="required" />
+        <s:attribute name="ObservacionDeCierre" type="s:string" />
+        <s:attribute name="EsExterna" type="s:boolean" use="required" />
+        <s:attribute name="OrigenRecetaSinCita" type="s:string" />
+        <s:attribute name="FechaProximoDespacho" type="s:long" use="required" />
+        <s:attribute name="EdadUsuario" type="s:int" use="required" />
+        <s:attribute name="IdInstitucionPrevisional" type="s:int" use="required" />
+        <s:attribute default="0" name="IdBodegaOrigen" type="s:int" />
+        <s:attribute name="Periodicidad" type="s:int" use="required" />
+        <s:attribute name="EsNuevo" type="s:boolean" use="required" />
+        <s:attribute name="EsModificado" type="s:boolean" use="required" />
+        <s:attribute name="EsBorrado" type="s:boolean" use="required" />
+        <s:attribute name="TimeStamp" type="s:string" />
+        <s:attribute default="0" name="IdLocal" type="s:int" />
+        <s:attribute name="TimeStampLocal" type="s:string" />
+        <s:attribute default="0" name="IdFuncionarioRegistrador" type="s:int" />
+        <s:attribute default="0" name="IdFuncionarioCierraReceta" type="s:int" />
+        <s:attribute name="FechaHoraCierreReceta" type="s:long" use="required" />
+        <s:attribute name="IdNodoSolicitante" type="s:int" use="required" />
+        <s:attribute name="IdFuncionarioSolicitante" type="s:int" use="required" />
+        <s:attribute name="NombreEstablecimientoSolicitante" type="s:string" />
+        <s:attribute name="NombreFuncionarioSolicitante" type="s:string" />
+        <s:attribute name="Folio" type="s:string" />
+        <s:attribute name="FechaSolicitud" type="s:long" use="required" />
+      </s:complexType>
+      <s:complexType name="PrescripcionCollection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfPrescripcion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPrescripcion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Prescripcion" nillable="true" type="tns:Prescripcion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Prescripcion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MotivoDespachoPendienteUsuario" type="tns:MotivoDespachoPendienteUsuario" />
+        </s:sequence>
+        <s:attribute default="0" name="Id" type="s:int" />
+        <s:attribute name="DosisUnitaria" type="s:double" use="required" />
+        <s:attribute default="0" name="Intervalo" type="s:int" />
+        <s:attribute default="0" name="Duracion" type="s:int" />
+        <s:attribute name="ParcialPorMes" type="s:double" use="required" />
+        <s:attribute default="0" name="ADespacharPorPeriodicidad" type="s:int" />
+        <s:attribute name="Observacion" type="s:string" />
+        <s:attribute name="FechaProximoDespacho" type="s:long" use="required" />
+        <s:attribute name="DescripcionArticulo" type="s:string" />
+        <s:attribute default="false" name="Centinela" type="s:boolean" />
+        <s:attribute default="false" name="Controlado" type="s:boolean" />
+        <s:attribute default="false" name="Psicotropico" type="s:boolean" />
+        <s:attribute default="false" name="Auge" type="s:boolean" />
+        <s:attribute default="0" name="IdReceta" type="s:int" />
+        <s:attribute default="0" name="IdDiagnostico" type="s:int" />
+        <s:attribute default="0" name="IdArticulo" type="s:int" />
+        <s:attribute default="0" name="IdUnidadAdministracion" type="s:int" />
+        <s:attribute default="0" name="SaldoPendiente" type="s:int" />
+        <s:attribute name="Descripcion" type="s:string" />
+        <s:attribute default="0" name="CantidadDespachada" type="s:int" />
+        <s:attribute default="0" name="CantidadSinDespachar" type="s:int" />
+        <s:attribute default="0" name="TipoUnidadIntervalo" type="s:int" />
+        <s:attribute default="0" name="TipoUnidadDuracion" type="s:int" />
+        <s:attribute default="0" name="TotalRecetado" type="s:int" />
+        <s:attribute default="0" name="TotalADespachar" type="s:int" />
+        <s:attribute default="0" name="CantidadPorPrescripcion" type="s:int" />
+        <s:attribute name="Alertas" type="s:string" />
+        <s:attribute name="InteraccionMedicamento" type="s:string" />
+        <s:attribute default="false" name="ConexionVademecum" type="s:boolean" />
+        <s:attribute default="false" name="EsNuevo" type="s:boolean" />
+        <s:attribute default="false" name="EsModificado" type="s:boolean" />
+        <s:attribute default="false" name="EsBorrado" type="s:boolean" />
+        <s:attribute name="TimeStamp" type="s:string" />
+        <s:attribute default="0" name="IdLocal" type="s:int" />
+        <s:attribute name="TimeStampLocal" type="s:string" />
+        <s:attribute name="Lote" type="s:string" />
+        <s:attribute name="PrecioVenta" type="s:int" use="required" />
+        <s:attribute default="0" name="IdFnp" type="s:int" />
+      </s:complexType>
+      <s:complexType name="MotivoDespachoPendienteUsuario">
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="IdPrescripcion" type="s:int" use="required" />
+        <s:attribute name="IdMotivoDespachoPendiente" type="s:int" use="required" />
+        <s:attribute name="FechaRegistro" type="s:long" use="required" />
+        <s:attribute name="IdFuncionarioRegistra" type="s:int" use="required" />
+        <s:attribute name="IdFuncionarioModifica" type="s:int" use="required" />
+        <s:attribute name="IdFuncionarioElimina" type="s:int" use="required" />
+        <s:attribute name="Observacion" type="s:string" />
+        <s:attribute name="EsNuevo" type="s:boolean" use="required" />
+        <s:attribute name="EsModificado" type="s:boolean" use="required" />
+        <s:attribute name="EsBorrado" type="s:boolean" use="required" />
+        <s:attribute name="TimeStamp" type="s:string" />
+      </s:complexType>
+      <s:complexType name="DatoTercero">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Relacion" type="tns:Parentesco" />
+        </s:sequence>
+        <s:attribute default="0" name="Id" type="s:int" />
+        <s:attribute default="0" name="IdReceta" type="s:int" />
+        <s:attribute default="0" name="IdUsuarioAps" type="s:int" />
+        <s:attribute default="false" name="EsNuevo" type="s:boolean" />
+        <s:attribute default="false" name="EsModificado" type="s:boolean" />
+        <s:attribute default="false" name="EsBorrado" type="s:boolean" />
+        <s:attribute name="Rut" type="s:string" />
+        <s:attribute name="Nombres" type="s:string" />
+      </s:complexType>
+      <s:complexType name="Parentesco">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="tns:Sexo" />
+        </s:sequence>
+        <s:attribute default="0" name="Id" type="s:int" />
+        <s:attribute name="Nombre" type="s:string" />
+        <s:attribute name="Descripcion" type="s:string" />
+        <s:attribute name="Codigo" type="s:string" />
+        <s:attribute default="false" name="Activo" type="s:boolean" />
+        <s:attribute default="false" name="Original" type="s:boolean" />
+        <s:attribute default="false" name="Consanguineo" type="s:boolean" />
+        <s:attribute default="false" name="EsNuevo" type="s:boolean" />
+        <s:attribute default="false" name="EsModificado" type="s:boolean" />
+        <s:attribute default="false" name="EsBorrado" type="s:boolean" />
+        <s:attribute name="TimeStamp" type="s:string" />
+        <s:attribute default="0" name="IdLocal" type="s:int" />
+        <s:attribute name="TimeStampLocal" type="s:string" />
+      </s:complexType>
+      <s:complexType name="Sexo">
+        <s:attribute default="0" name="Id" type="s:int" />
+        <s:attribute name="Nombre" type="s:string" />
+        <s:attribute name="Codigo" type="s:string" />
+        <s:attribute name="Descripcion" type="s:string" />
+        <s:attribute default="false" name="Original" type="s:boolean" />
+        <s:attribute default="false" name="Activo" type="s:boolean" />
+        <s:attribute default="false" name="EsNuevo" type="s:boolean" />
+        <s:attribute default="false" name="EsModificado" type="s:boolean" />
+        <s:attribute default="false" name="EsBorrado" type="s:boolean" />
+        <s:attribute name="TimeStamp" type="s:string" />
+        <s:attribute default="0" name="IdLocal" type="s:int" />
+        <s:attribute name="TimeStampLocal" type="s:string" />
+        <s:attribute name="CodigoRYF" type="s:string" />
+      </s:complexType>
+      <s:element name="GuardarRecetasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuardarRecetasResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ids" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="timeStamps" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GuardarReceta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="recetaPadre" type="tns:Receta" />
+            <s:element minOccurs="0" maxOccurs="1" name="recetaHija" type="tns:Receta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarRecetaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuardarRecetaResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ids" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="timeStamps" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerRecetas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filtro" type="tns:FiltroReceta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FiltroReceta">
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="FechaInicioGeneracion" type="s:long" use="required" />
+        <s:attribute name="FechaTerminoGeneracion" type="s:long" use="required" />
+        <s:attribute name="FechaInicioTerminoVigencia" type="s:long" use="required" />
+        <s:attribute name="FechaTerminoTerminoVigencia" type="s:long" use="required" />
+        <s:attribute name="EstadoReceta" type="s:int" use="required" />
+        <s:attribute name="UsarEstadoReceta" type="s:boolean" use="required" />
+        <s:attribute name="IdTipoReceta" type="s:int" use="required" />
+        <s:attribute name="RutUsuarioAps" type="s:string" />
+        <s:attribute name="NombreUsuarioAps" type="s:string" />
+        <s:attribute name="RutFuncionarioPrestador" type="s:string" />
+        <s:attribute name="NombreFuncionarioPrestador" type="s:string" />
+        <s:attribute name="FechaInicioCita" type="s:long" use="required" />
+        <s:attribute name="FechaTerminoCita" type="s:long" use="required" />
+        <s:attribute name="IdRazonCita" type="s:int" use="required" />
+        <s:attribute name="UsarMotivoConsulta" type="s:boolean" use="required" />
+        <s:attribute name="IdAtencion" type="s:int" use="required" />
+        <s:attribute name="IdNodo" type="s:int" use="required" />
+        <s:attribute name="TraerDeOtrosNodos" type="s:boolean" use="required" />
+        <s:attribute name="IdFuncionarioPrestador" type="s:int" use="required" />
+        <s:attribute name="IdUsuarioAps" type="s:int" use="required" />
+        <s:attribute name="IdLocalUsuarioAps" type="s:int" use="required" />
+        <s:attribute name="IdCita" type="s:int" use="required" />
+        <s:attribute name="TraerPrescripciones" type="s:boolean" use="required" />
+        <s:attribute name="EsExterna" type="s:int" use="required" />
+        <s:attribute name="IdArticulo" type="s:int" use="required" />
+        <s:attribute name="IdRecetaPadre" type="s:int" use="required" />
+        <s:attribute name="UsarIdRecetaPadre" type="s:boolean" use="required" />
+        <s:attribute name="EsNuevo" type="s:boolean" use="required" />
+        <s:attribute name="EsModificado" type="s:boolean" use="required" />
+        <s:attribute name="EsBorrado" type="s:boolean" use="required" />
+        <s:attribute name="TimeStamp" type="s:string" />
+        <s:attribute name="TraerFuncionarioDespachador" type="s:boolean" use="required" />
+        <s:attribute name="AmbitoBusqueda" type="s:int" use="required" />
+      </s:complexType>
+      <s:element name="ObtenerRecetasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerRecetasResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="recetas" type="tns:ArrayOfReceta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarTipoReceta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoRecetas" type="tns:ArrayOfTipoReceta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoReceta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoReceta" nillable="true" type="tns:TipoReceta" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoReceta">
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="Descripcion" type="s:string" />
+        <s:attribute name="PeriodicidadDias" type="s:int" use="required" />
+        <s:attribute name="DispensacionProlongada" type="s:boolean" use="required" />
+        <s:attribute name="VigenciaDias" type="s:int" use="required" />
+        <s:attribute name="PorDefecto" type="s:boolean" use="required" />
+        <s:attribute name="EsNuevo" type="s:boolean" use="required" />
+        <s:attribute name="EsModificado" type="s:boolean" use="required" />
+        <s:attribute name="EsBorrado" type="s:boolean" use="required" />
+        <s:attribute name="FolioManual" type="s:boolean" use="required" />
+        <s:attribute name="TimeStamp" type="s:string" />
+        <s:attribute default="0" name="IdLocal" type="s:int" />
+        <s:attribute name="TimeStampLocal" type="s:string" />
+        <s:attribute default="false" name="EsNotificable" type="s:boolean" />
+      </s:complexType>
+      <s:element name="GuardarTipoRecetaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuardarTipoRecetaResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ids" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="timeStamps" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerTipoReceta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerTipoRecetaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerTipoRecetaResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoRecetas" type="tns:ArrayOfTipoReceta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerTipoRecetaPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerTipoRecetaPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerTipoRecetaPorIdResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoReceta" type="tns:TipoReceta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerTipoRecetaPorIdNodo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idNodo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerTipoRecetaPorIdNodoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerTipoRecetaPorIdNodoResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoRecetas" type="tns:ArrayOfTipoReceta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarArticuloSubprogDiagnostico">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entidades" type="tns:ArrayOfArticuloSubprogDiagnostico" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArticuloSubprogDiagnostico">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArticuloSubprogDiagnostico" nillable="true" type="tns:ArticuloSubprogDiagnostico" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArticuloSubprogDiagnostico">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IdsArticulo" type="tns:ArrayOfInt" />
+        </s:sequence>
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="IdProgramaSalud" type="s:int" use="required" />
+        <s:attribute name="IdDiagnostico" type="s:int" use="required" />
+        <s:attribute name="IdNodo" type="s:int" use="required" />
+        <s:attribute name="EsNuevo" type="s:boolean" use="required" />
+        <s:attribute name="EsModificado" type="s:boolean" use="required" />
+        <s:attribute name="EsBorrado" type="s:boolean" use="required" />
+        <s:attribute name="TimeStamp" type="s:string" />
+        <s:attribute default="0" name="IdLocal" type="s:int" />
+        <s:attribute name="TimeStampLocal" type="s:string" />
+      </s:complexType>
+      <s:element name="GuardarArticuloSubprogDiagnosticoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuardarArticuloSubprogDiagnosticoResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ids" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="timeStamps" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerArticuloSubprogDiagnosticoPorFiltro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filtro" type="tns:FiltroArticuloSubprogDiagnostico" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FiltroArticuloSubprogDiagnostico">
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="IdDiagnostico" type="s:int" use="required" />
+        <s:attribute name="IdArticulo" type="s:int" use="required" />
+        <s:attribute name="IdNodo" type="s:int" use="required" />
+        <s:attribute name="EsNuevo" type="s:boolean" use="required" />
+        <s:attribute name="EsModificado" type="s:boolean" use="required" />
+        <s:attribute name="EsBorrado" type="s:boolean" use="required" />
+        <s:attribute name="TimeStamp" type="s:string" />
+      </s:complexType>
+      <s:element name="ObtenerArticuloSubprogDiagnosticoPorFiltroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerArticuloSubprogDiagnosticoPorFiltroResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="entidades" type="tns:ArrayOfArticuloSubprogDiagnostico" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerStockActualArticuloPorFiltro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filtro" type="tns:FiltroArticuloStockActual" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FiltroArticuloStockActual">
+        <s:attribute name="IdBodega" type="s:int" use="required" />
+        <s:attribute name="IdArticulo" type="s:int" use="required" />
+        <s:attribute name="IdNodo" type="s:int" use="required" />
+        <s:attribute name="EsAlimento" type="s:boolean" use="required" />
+        <s:attribute name="EsUrgencia" type="s:boolean" use="required" />
+        <s:attribute name="EsFarmacia" type="s:boolean" use="required" />
+        <s:attribute name="EsInsumo" type="s:boolean" use="required" />
+        <s:attribute name="Todos" type="s:boolean" use="required" />
+        <s:attribute name="EsStockCritico" type="s:boolean" use="required" />
+        <s:attribute name="EsStockMinimo" type="s:boolean" use="required" />
+        <s:attribute name="EsNotificable" type="s:boolean" use="required" />
+      </s:complexType>
+      <s:element name="ObtenerStockActualArticuloPorFiltroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerStockActualArticuloPorFiltroResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="entidades" type="tns:ArrayOfArticuloStockActual" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArticuloStockActual">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArticuloStockActual" nillable="true" type="tns:ArticuloStockActual" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArticuloStockActual">
+        <s:attribute name="NombreBodega" type="s:string" />
+        <s:attribute name="CodigoArticulo" type="s:string" />
+        <s:attribute name="NombreArticulo" type="s:string" />
+        <s:attribute name="StockCritico" type="s:int" use="required" />
+        <s:attribute name="StockInstitucional" type="s:int" use="required" />
+        <s:attribute name="StockMinimo" type="s:int" use="required" />
+        <s:attribute name="StockTotalBodega" type="s:int" use="required" />
+        <s:attribute name="EsNotificable" type="s:boolean" use="required" />
+      </s:complexType>
+      <s:element name="RevisarInteraccion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idArticulos" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="idsVademecum" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevisarInteraccionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RevisarInteraccionResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="interacciones" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigos" type="tns:ArrayOfCodigosArticulos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCodigosArticulos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CodigosArticulos" nillable="true" type="tns:CodigosArticulos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CodigosArticulos">
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="TipoCodigosArticulos" type="s:int" use="required" />
+        <s:attribute name="Codigo" type="s:string" />
+        <s:attribute default="false" name="EsNuevo" type="s:boolean" />
+        <s:attribute default="false" name="EsModificado" type="s:boolean" />
+        <s:attribute default="false" name="EsBorrado" type="s:boolean" />
+        <s:attribute default="0" name="Activo" type="s:int" />
+        <s:attribute name="TimeStamp" type="s:string" />
+      </s:complexType>
+      <s:element name="RevisarInteraccion2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idArticulos" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="idsVMP" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevisarInteraccion2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RevisarInteraccion2Result" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="interacciones" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigos" type="tns:ArrayOfCodigosArticulos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevisarAlertas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idsVademecum" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="diagnosticos" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="lactancia" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="embarazo" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="edad" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="peso" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="sexo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="renal" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="alergias" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevisarAlertasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RevisarAlertasResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="alertas" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevisarAlertas2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profile" type="tns:Prescription" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Prescription">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Patient" type="tns:Patient" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrescriptionLines" type="tns:ArrayOfPrescriptionLine" />
+        </s:sequence>
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute default="false" name="EsNuevo" type="s:boolean" />
+        <s:attribute default="false" name="EsModificado" type="s:boolean" />
+        <s:attribute default="false" name="EsBorrado" type="s:boolean" />
+        <s:attribute name="TimeStamp" type="s:string" />
+      </s:complexType>
+      <s:complexType name="Patient">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:string" />
+        </s:sequence>
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute default="0" name="Breastfeeding" type="s:int" />
+        <s:attribute name="Creatin" type="s:int" use="required" />
+        <s:attribute default="0" name="Gender" type="s:int" />
+        <s:attribute name="Height" type="s:int" use="required" />
+        <s:attribute name="Weight" type="s:int" use="required" />
+        <s:attribute name="WeeksOfAmenorrhea" type="s:int" use="required" />
+        <s:attribute default="0" name="HepaticInsufficiency" type="s:int" />
+        <s:attribute name="Allergies">
+          <s:simpleType>
+            <s:list itemType="s:string" />
+          </s:simpleType>
+        </s:attribute>
+        <s:attribute name="Molecules">
+          <s:simpleType>
+            <s:list itemType="s:string" />
+          </s:simpleType>
+        </s:attribute>
+        <s:attribute name="Pathologies">
+          <s:simpleType>
+            <s:list itemType="s:string" />
+          </s:simpleType>
+        </s:attribute>
+        <s:attribute default="false" name="EsNuevo" type="s:boolean" />
+        <s:attribute default="false" name="EsModificado" type="s:boolean" />
+        <s:attribute default="false" name="EsBorrado" type="s:boolean" />
+        <s:attribute name="TimeStamp" type="s:string" />
+      </s:complexType>
+      <s:complexType name="ArrayOfPrescriptionLine">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PrescriptionLine" nillable="true" type="tns:PrescriptionLine" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PrescriptionLine">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DrugType" type="s:string" />
+        </s:sequence>
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="DrugId" type="s:int" use="required" />
+        <s:attribute name="Dose" type="s:int" use="required" />
+        <s:attribute name="UnitId" type="s:int" use="required" />
+        <s:attribute default="0" name="FrequencyType" type="s:int" />
+        <s:attribute name="Duration" type="s:int" use="required" />
+        <s:attribute default="0" name="DurationType" type="s:int" />
+        <s:attribute default="false" name="EsNuevo" type="s:boolean" />
+        <s:attribute default="false" name="EsModificado" type="s:boolean" />
+        <s:attribute default="false" name="EsBorrado" type="s:boolean" />
+        <s:attribute name="TimeStamp" type="s:string" />
+      </s:complexType>
+      <s:element name="RevisarAlertas2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RevisarAlertas2Result" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="alertas" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevisarMonografias">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoATC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevisarMonografiasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RevisarMonografiasResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="monografias" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevisarMonografias2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdVMP" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevisarMonografias2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RevisarMonografias2Result" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="monografias" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevisarMonografias2ATC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoATC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevisarMonografias2ATCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RevisarMonografias2ATCResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="monografias" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarStockReceta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="receta" type="tns:Receta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarStockRecetaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConsultarStockRecetaResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="stock" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerMotivosDespachoPendiente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerMotivosDespachoPendienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerMotivosDespachoPendienteResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="motivosDespachosPendientes" type="tns:ArrayOfMotivoDespachoPendiente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMotivoDespachoPendiente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MotivoDespachoPendiente" nillable="true" type="tns:MotivoDespachoPendiente" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MotivoDespachoPendiente">
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="Nombre" type="s:string" />
+        <s:attribute name="Activo" type="s:boolean" use="required" />
+        <s:attribute name="EsNuevo" type="s:boolean" use="required" />
+        <s:attribute name="EsModificado" type="s:boolean" use="required" />
+        <s:attribute name="EsBorrado" type="s:boolean" use="required" />
+        <s:attribute name="TimeStamp" type="s:string" />
+      </s:complexType>
+      <s:element name="GuardarMotivoDespachoPendienteUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="motivosDespachosPendientesUsuario" type="tns:ArrayOfMotivoDespachoPendienteUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMotivoDespachoPendienteUsuario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MotivoDespachoPendienteUsuario" nillable="true" type="tns:MotivoDespachoPendienteUsuario" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GuardarMotivoDespachoPendienteUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuardarMotivoDespachoPendienteUsuarioResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ids" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="timeStamps" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarLotesArticulos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lotesArticulo" type="tns:ArrayOfLotesArticulos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLotesArticulos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LotesArticulos" nillable="true" type="tns:LotesArticulos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LotesArticulos">
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="IdArticuloPadre" type="s:int" use="required" />
+        <s:attribute name="IdArticuloHijo" type="s:int" use="required" />
+        <s:attribute name="IdNodo" type="s:int" use="required" />
+        <s:attribute name="Lote" type="s:string" />
+        <s:attribute name="FechaVencimiento" type="s:dateTime" use="required" />
+        <s:attribute name="IdLinea" type="s:int" use="required" />
+        <s:attribute name="Activo" type="s:boolean" use="required" />
+        <s:attribute name="Eliminado" type="s:boolean" use="required" />
+        <s:attribute default="false" name="EsNuevo" type="s:boolean" />
+        <s:attribute default="false" name="EsModificado" type="s:boolean" />
+        <s:attribute default="false" name="EsBorrado" type="s:boolean" />
+        <s:attribute name="TimeStamp" type="s:string" />
+      </s:complexType>
+      <s:element name="GuardarLotesArticulosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuardarLotesArticulosResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ids" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="timeStamps" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerLotesArticulos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filtro" type="tns:FiltroLotesArticulos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FiltroLotesArticulos">
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="Ids" use="required">
+          <s:simpleType>
+            <s:list itemType="s:int" />
+          </s:simpleType>
+        </s:attribute>
+        <s:attribute name="IdArticuloPadre" type="s:int" use="required" />
+        <s:attribute name="IdArticuloHijo" type="s:int" use="required" />
+        <s:attribute name="IdNodo" type="s:int" use="required" />
+        <s:attribute name="Lote" type="s:string" />
+        <s:attribute name="FechaVencimiento" type="s:dateTime" use="required" />
+        <s:attribute name="IdLinea" type="s:int" use="required" />
+        <s:attribute name="Activo" type="s:boolean" use="required" />
+        <s:attribute name="Eliminado" type="s:boolean" use="required" />
+        <s:attribute default="false" name="EsNuevo" type="s:boolean" />
+        <s:attribute default="false" name="EsModificado" type="s:boolean" />
+        <s:attribute default="false" name="EsBorrado" type="s:boolean" />
+        <s:attribute name="TimeStamp" type="s:string" />
+      </s:complexType>
+      <s:element name="ObtenerLotesArticulosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerLotesArticulosResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfLotesArticulos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarLotesDespachados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lotesDespachados" type="tns:ArrayOfLotesDespachados" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLotesDespachados">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LotesDespachados" nillable="true" type="tns:LotesDespachados" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LotesDespachados">
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="IdPrescripcion" type="s:int" use="required" />
+        <s:attribute name="IdArticulo" type="s:int" use="required" />
+        <s:attribute name="Lote" type="s:string" />
+        <s:attribute name="IdLote" type="s:int" use="required" />
+        <s:attribute name="IdReceta" type="s:int" use="required" />
+        <s:attribute name="Eliminado" type="s:boolean" use="required" />
+        <s:attribute default="false" name="EsNuevo" type="s:boolean" />
+        <s:attribute default="false" name="EsModificado" type="s:boolean" />
+        <s:attribute default="false" name="EsBorrado" type="s:boolean" />
+        <s:attribute name="TimeStamp" type="s:string" />
+      </s:complexType>
+      <s:element name="GuardarLotesDespachadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuardarLotesDespachadosResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ids" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="timeStamps" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerLotesDespachados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filtro" type="tns:FiltroLotesDespachados" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FiltroLotesDespachados">
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="Ids" use="required">
+          <s:simpleType>
+            <s:list itemType="s:int" />
+          </s:simpleType>
+        </s:attribute>
+        <s:attribute name="IdPrescripcion" type="s:int" use="required" />
+        <s:attribute name="IdArticulo" type="s:int" use="required" />
+        <s:attribute name="Lote" type="s:string" />
+        <s:attribute name="IdLote" type="s:int" use="required" />
+        <s:attribute name="IdReceta" type="s:int" use="required" />
+        <s:attribute name="Eliminado" type="s:boolean" use="required" />
+        <s:attribute default="false" name="EsNuevo" type="s:boolean" />
+        <s:attribute default="false" name="EsModificado" type="s:boolean" />
+        <s:attribute default="false" name="EsBorrado" type="s:boolean" />
+        <s:attribute name="TimeStamp" type="s:string" />
+      </s:complexType>
+      <s:element name="ObtenerLotesDespachadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerLotesDespachadosResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfLotesDespachados" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerTipoDocumentoRespaldo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filtro" type="tns:FiltroTipoDocumentoRespaldo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FiltroTipoDocumentoRespaldo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Ids" type="tns:ArrayOfInt" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observacion" type="s:string" />
+        </s:sequence>
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="Eliminado" type="s:boolean" use="required" />
+      </s:complexType>
+      <s:element name="ObtenerTipoDocumentoRespaldoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerTipoDocumentoRespaldoResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfTipoDocumentoRespaldo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoDocumentoRespaldo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoDocumentoRespaldo" nillable="true" type="tns:TipoDocumentoRespaldo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoDocumentoRespaldo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observacion" type="s:string" />
+        </s:sequence>
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="Eliminado" type="s:boolean" use="required" />
+        <s:attribute default="false" name="EsNuevo" type="s:boolean" />
+        <s:attribute default="false" name="EsModificado" type="s:boolean" />
+        <s:attribute default="false" name="EsBorrado" type="s:boolean" />
+        <s:attribute name="TimeStamp" type="s:string" />
+      </s:complexType>
+      <s:element name="GuardarAuditoriaImpresionReceta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transporte" type="tns:ArrayOfAuditoriaImpresionReceta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAuditoriaImpresionReceta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AuditoriaImpresionReceta" nillable="true" type="tns:AuditoriaImpresionReceta" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AuditoriaImpresionReceta">
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="IdFuncionarioPrestador" type="s:int" use="required" />
+        <s:attribute name="IdReceta" type="s:int" use="required" />
+        <s:attribute name="IdNodo" type="s:int" use="required" />
+        <s:attribute name="FechaHoraImpresionReceta" type="s:dateTime" use="required" />
+        <s:attribute name="Ambito" type="s:int" use="required" />
+        <s:attribute name="Eliminado" type="s:boolean" use="required" />
+        <s:attribute default="false" name="EsNuevo" type="s:boolean" />
+        <s:attribute default="false" name="EsModificado" type="s:boolean" />
+        <s:attribute default="false" name="EsBorrado" type="s:boolean" />
+        <s:attribute name="TimeStamp" type="s:string" />
+      </s:complexType>
+      <s:element name="GuardarAuditoriaImpresionRecetaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuardarAuditoriaImpresionRecetaResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ids" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="timeStamps" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerAuditoriaImpresionReceta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filtro" type="tns:FiltroAuditoriaImpresionReceta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FiltroAuditoriaImpresionReceta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Ids" type="tns:ArrayOfInt" />
+        </s:sequence>
+        <s:attribute name="Id" type="s:int" use="required" />
+        <s:attribute name="IdFuncionarioPrestador" type="s:int" use="required" />
+        <s:attribute name="IdReceta" type="s:int" use="required" />
+        <s:attribute name="IdNodo" type="s:int" use="required" />
+        <s:attribute name="FechaHoraImpresionReceta" type="s:dateTime" use="required" />
+        <s:attribute name="Ambito" type="s:int" use="required" />
+        <s:attribute name="Eliminado" type="s:boolean" use="required" />
+      </s:complexType>
+      <s:element name="ObtenerAuditoriaImpresionRecetaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerAuditoriaImpresionRecetaResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfAuditoriaImpresionReceta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="PingSoapIn">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapOut">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerStockBodegaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerStockBodega" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerStockBodegaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerStockBodegaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarRecetasSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarRecetas" />
+  </wsdl:message>
+  <wsdl:message name="GuardarRecetasSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarRecetasResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarRecetaSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarReceta" />
+  </wsdl:message>
+  <wsdl:message name="GuardarRecetaSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarRecetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerRecetasSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerRecetas" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerRecetasSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerRecetasResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarTipoRecetaSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarTipoReceta" />
+  </wsdl:message>
+  <wsdl:message name="GuardarTipoRecetaSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarTipoRecetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoRecetaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoReceta" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoRecetaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoRecetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoRecetaPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoRecetaPorId" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoRecetaPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoRecetaPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoRecetaPorIdNodoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoRecetaPorIdNodo" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoRecetaPorIdNodoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoRecetaPorIdNodoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarArticuloSubprogDiagnosticoSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarArticuloSubprogDiagnostico" />
+  </wsdl:message>
+  <wsdl:message name="GuardarArticuloSubprogDiagnosticoSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarArticuloSubprogDiagnosticoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerArticuloSubprogDiagnosticoPorFiltroSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerArticuloSubprogDiagnosticoPorFiltro" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerArticuloSubprogDiagnosticoPorFiltroSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerArticuloSubprogDiagnosticoPorFiltroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerStockActualArticuloPorFiltroSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerStockActualArticuloPorFiltro" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerStockActualArticuloPorFiltroSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerStockActualArticuloPorFiltroResponse" />
+  </wsdl:message>
+  <wsdl:message name="RevisarInteraccionSoapIn">
+    <wsdl:part name="parameters" element="tns:RevisarInteraccion" />
+  </wsdl:message>
+  <wsdl:message name="RevisarInteraccionSoapOut">
+    <wsdl:part name="parameters" element="tns:RevisarInteraccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="RevisarInteraccion2SoapIn">
+    <wsdl:part name="parameters" element="tns:RevisarInteraccion2" />
+  </wsdl:message>
+  <wsdl:message name="RevisarInteraccion2SoapOut">
+    <wsdl:part name="parameters" element="tns:RevisarInteraccion2Response" />
+  </wsdl:message>
+  <wsdl:message name="RevisarAlertasSoapIn">
+    <wsdl:part name="parameters" element="tns:RevisarAlertas" />
+  </wsdl:message>
+  <wsdl:message name="RevisarAlertasSoapOut">
+    <wsdl:part name="parameters" element="tns:RevisarAlertasResponse" />
+  </wsdl:message>
+  <wsdl:message name="RevisarAlertas2SoapIn">
+    <wsdl:part name="parameters" element="tns:RevisarAlertas2" />
+  </wsdl:message>
+  <wsdl:message name="RevisarAlertas2SoapOut">
+    <wsdl:part name="parameters" element="tns:RevisarAlertas2Response" />
+  </wsdl:message>
+  <wsdl:message name="RevisarMonografiasSoapIn">
+    <wsdl:part name="parameters" element="tns:RevisarMonografias" />
+  </wsdl:message>
+  <wsdl:message name="RevisarMonografiasSoapOut">
+    <wsdl:part name="parameters" element="tns:RevisarMonografiasResponse" />
+  </wsdl:message>
+  <wsdl:message name="RevisarMonografias2SoapIn">
+    <wsdl:part name="parameters" element="tns:RevisarMonografias2" />
+  </wsdl:message>
+  <wsdl:message name="RevisarMonografias2SoapOut">
+    <wsdl:part name="parameters" element="tns:RevisarMonografias2Response" />
+  </wsdl:message>
+  <wsdl:message name="RevisarMonografias2ATCSoapIn">
+    <wsdl:part name="parameters" element="tns:RevisarMonografias2ATC" />
+  </wsdl:message>
+  <wsdl:message name="RevisarMonografias2ATCSoapOut">
+    <wsdl:part name="parameters" element="tns:RevisarMonografias2ATCResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarStockRecetaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarStockReceta" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarStockRecetaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarStockRecetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerMotivosDespachoPendienteSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerMotivosDespachoPendiente" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerMotivosDespachoPendienteSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerMotivosDespachoPendienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarMotivoDespachoPendienteUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarMotivoDespachoPendienteUsuario" />
+  </wsdl:message>
+  <wsdl:message name="GuardarMotivoDespachoPendienteUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarMotivoDespachoPendienteUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarLotesArticulosSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarLotesArticulos" />
+  </wsdl:message>
+  <wsdl:message name="GuardarLotesArticulosSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarLotesArticulosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerLotesArticulosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerLotesArticulos" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerLotesArticulosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerLotesArticulosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarLotesDespachadosSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarLotesDespachados" />
+  </wsdl:message>
+  <wsdl:message name="GuardarLotesDespachadosSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarLotesDespachadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerLotesDespachadosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerLotesDespachados" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerLotesDespachadosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerLotesDespachadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoDocumentoRespaldoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoDocumentoRespaldo" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoDocumentoRespaldoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoDocumentoRespaldoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarAuditoriaImpresionRecetaSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarAuditoriaImpresionReceta" />
+  </wsdl:message>
+  <wsdl:message name="GuardarAuditoriaImpresionRecetaSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarAuditoriaImpresionRecetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerAuditoriaImpresionRecetaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerAuditoriaImpresionReceta" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerAuditoriaImpresionRecetaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerAuditoriaImpresionRecetaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FarmaciaSoap">
+    <wsdl:operation name="Ping">
+      <wsdl:input message="tns:PingSoapIn" />
+      <wsdl:output message="tns:PingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerStockBodega">
+      <wsdl:input message="tns:ObtenerStockBodegaSoapIn" />
+      <wsdl:output message="tns:ObtenerStockBodegaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarRecetas">
+      <wsdl:input message="tns:GuardarRecetasSoapIn" />
+      <wsdl:output message="tns:GuardarRecetasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarReceta">
+      <wsdl:input message="tns:GuardarRecetaSoapIn" />
+      <wsdl:output message="tns:GuardarRecetaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRecetas">
+      <wsdl:input message="tns:ObtenerRecetasSoapIn" />
+      <wsdl:output message="tns:ObtenerRecetasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarTipoReceta">
+      <wsdl:input message="tns:GuardarTipoRecetaSoapIn" />
+      <wsdl:output message="tns:GuardarTipoRecetaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoReceta">
+      <wsdl:input message="tns:ObtenerTipoRecetaSoapIn" />
+      <wsdl:output message="tns:ObtenerTipoRecetaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoRecetaPorId">
+      <wsdl:input message="tns:ObtenerTipoRecetaPorIdSoapIn" />
+      <wsdl:output message="tns:ObtenerTipoRecetaPorIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoRecetaPorIdNodo">
+      <wsdl:input message="tns:ObtenerTipoRecetaPorIdNodoSoapIn" />
+      <wsdl:output message="tns:ObtenerTipoRecetaPorIdNodoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarArticuloSubprogDiagnostico">
+      <wsdl:input message="tns:GuardarArticuloSubprogDiagnosticoSoapIn" />
+      <wsdl:output message="tns:GuardarArticuloSubprogDiagnosticoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerArticuloSubprogDiagnosticoPorFiltro">
+      <wsdl:input message="tns:ObtenerArticuloSubprogDiagnosticoPorFiltroSoapIn" />
+      <wsdl:output message="tns:ObtenerArticuloSubprogDiagnosticoPorFiltroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerStockActualArticuloPorFiltro">
+      <wsdl:input message="tns:ObtenerStockActualArticuloPorFiltroSoapIn" />
+      <wsdl:output message="tns:ObtenerStockActualArticuloPorFiltroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RevisarInteraccion">
+      <wsdl:input message="tns:RevisarInteraccionSoapIn" />
+      <wsdl:output message="tns:RevisarInteraccionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RevisarInteraccion2">
+      <wsdl:input message="tns:RevisarInteraccion2SoapIn" />
+      <wsdl:output message="tns:RevisarInteraccion2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RevisarAlertas">
+      <wsdl:input message="tns:RevisarAlertasSoapIn" />
+      <wsdl:output message="tns:RevisarAlertasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RevisarAlertas2">
+      <wsdl:input message="tns:RevisarAlertas2SoapIn" />
+      <wsdl:output message="tns:RevisarAlertas2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RevisarMonografias">
+      <wsdl:input message="tns:RevisarMonografiasSoapIn" />
+      <wsdl:output message="tns:RevisarMonografiasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RevisarMonografias2">
+      <wsdl:input message="tns:RevisarMonografias2SoapIn" />
+      <wsdl:output message="tns:RevisarMonografias2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RevisarMonografias2ATC">
+      <wsdl:input message="tns:RevisarMonografias2ATCSoapIn" />
+      <wsdl:output message="tns:RevisarMonografias2ATCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarStockReceta">
+      <wsdl:input message="tns:ConsultarStockRecetaSoapIn" />
+      <wsdl:output message="tns:ConsultarStockRecetaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMotivosDespachoPendiente">
+      <wsdl:input message="tns:ObtenerMotivosDespachoPendienteSoapIn" />
+      <wsdl:output message="tns:ObtenerMotivosDespachoPendienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarMotivoDespachoPendienteUsuario">
+      <wsdl:input message="tns:GuardarMotivoDespachoPendienteUsuarioSoapIn" />
+      <wsdl:output message="tns:GuardarMotivoDespachoPendienteUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarLotesArticulos">
+      <wsdl:input message="tns:GuardarLotesArticulosSoapIn" />
+      <wsdl:output message="tns:GuardarLotesArticulosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerLotesArticulos">
+      <wsdl:input message="tns:ObtenerLotesArticulosSoapIn" />
+      <wsdl:output message="tns:ObtenerLotesArticulosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarLotesDespachados">
+      <wsdl:input message="tns:GuardarLotesDespachadosSoapIn" />
+      <wsdl:output message="tns:GuardarLotesDespachadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerLotesDespachados">
+      <wsdl:input message="tns:ObtenerLotesDespachadosSoapIn" />
+      <wsdl:output message="tns:ObtenerLotesDespachadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoDocumentoRespaldo">
+      <wsdl:input message="tns:ObtenerTipoDocumentoRespaldoSoapIn" />
+      <wsdl:output message="tns:ObtenerTipoDocumentoRespaldoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarAuditoriaImpresionReceta">
+      <wsdl:input message="tns:GuardarAuditoriaImpresionRecetaSoapIn" />
+      <wsdl:output message="tns:GuardarAuditoriaImpresionRecetaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAuditoriaImpresionReceta">
+      <wsdl:input message="tns:ObtenerAuditoriaImpresionRecetaSoapIn" />
+      <wsdl:output message="tns:ObtenerAuditoriaImpresionRecetaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FarmaciaSoap" type="tns:FarmaciaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerStockBodega">
+      <soap:operation soapAction="http://tempuri.org/ObtenerStockBodega" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarRecetas">
+      <soap:operation soapAction="http://tempuri.org/GuardarRecetas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarReceta">
+      <soap:operation soapAction="http://tempuri.org/GuardarReceta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRecetas">
+      <soap:operation soapAction="http://tempuri.org/ObtenerRecetas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarTipoReceta">
+      <soap:operation soapAction="http://tempuri.org/GuardarTipoReceta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoReceta">
+      <soap:operation soapAction="http://tempuri.org/ObtenerTipoReceta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoRecetaPorId">
+      <soap:operation soapAction="http://tempuri.org/ObtenerTipoRecetaPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoRecetaPorIdNodo">
+      <soap:operation soapAction="http://tempuri.org/ObtenerTipoRecetaPorIdNodo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarArticuloSubprogDiagnostico">
+      <soap:operation soapAction="http://tempuri.org/GuardarArticuloSubprogDiagnostico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerArticuloSubprogDiagnosticoPorFiltro">
+      <soap:operation soapAction="http://tempuri.org/ObtenerArticuloSubprogDiagnosticoPorFiltro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerStockActualArticuloPorFiltro">
+      <soap:operation soapAction="http://tempuri.org/ObtenerStockActualArticuloPorFiltro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevisarInteraccion">
+      <soap:operation soapAction="http://tempuri.org/RevisarInteraccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevisarInteraccion2">
+      <soap:operation soapAction="http://tempuri.org/RevisarInteraccion2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevisarAlertas">
+      <soap:operation soapAction="http://tempuri.org/RevisarAlertas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevisarAlertas2">
+      <soap:operation soapAction="http://tempuri.org/RevisarAlertas2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevisarMonografias">
+      <soap:operation soapAction="http://tempuri.org/RevisarMonografias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevisarMonografias2">
+      <soap:operation soapAction="http://tempuri.org/RevisarMonografias2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevisarMonografias2ATC">
+      <soap:operation soapAction="http://tempuri.org/RevisarMonografias2ATC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarStockReceta">
+      <soap:operation soapAction="http://tempuri.org/ConsultarStockReceta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMotivosDespachoPendiente">
+      <soap:operation soapAction="http://tempuri.org/ObtenerMotivosDespachoPendiente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarMotivoDespachoPendienteUsuario">
+      <soap:operation soapAction="http://tempuri.org/GuardarMotivoDespachoPendienteUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarLotesArticulos">
+      <soap:operation soapAction="http://tempuri.org/GuardarLotesArticulos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerLotesArticulos">
+      <soap:operation soapAction="http://tempuri.org/ObtenerLotesArticulos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarLotesDespachados">
+      <soap:operation soapAction="http://tempuri.org/GuardarLotesDespachados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerLotesDespachados">
+      <soap:operation soapAction="http://tempuri.org/ObtenerLotesDespachados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoDocumentoRespaldo">
+      <soap:operation soapAction="http://tempuri.org/ObtenerTipoDocumentoRespaldo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarAuditoriaImpresionReceta">
+      <soap:operation soapAction="http://tempuri.org/GuardarAuditoriaImpresionReceta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAuditoriaImpresionReceta">
+      <soap:operation soapAction="http://tempuri.org/ObtenerAuditoriaImpresionReceta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FarmaciaSoap12" type="tns:FarmaciaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="http://tempuri.org/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerStockBodega">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerStockBodega" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarRecetas">
+      <soap12:operation soapAction="http://tempuri.org/GuardarRecetas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarReceta">
+      <soap12:operation soapAction="http://tempuri.org/GuardarReceta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRecetas">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerRecetas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarTipoReceta">
+      <soap12:operation soapAction="http://tempuri.org/GuardarTipoReceta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoReceta">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerTipoReceta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoRecetaPorId">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerTipoRecetaPorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoRecetaPorIdNodo">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerTipoRecetaPorIdNodo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarArticuloSubprogDiagnostico">
+      <soap12:operation soapAction="http://tempuri.org/GuardarArticuloSubprogDiagnostico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerArticuloSubprogDiagnosticoPorFiltro">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerArticuloSubprogDiagnosticoPorFiltro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerStockActualArticuloPorFiltro">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerStockActualArticuloPorFiltro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevisarInteraccion">
+      <soap12:operation soapAction="http://tempuri.org/RevisarInteraccion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevisarInteraccion2">
+      <soap12:operation soapAction="http://tempuri.org/RevisarInteraccion2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevisarAlertas">
+      <soap12:operation soapAction="http://tempuri.org/RevisarAlertas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevisarAlertas2">
+      <soap12:operation soapAction="http://tempuri.org/RevisarAlertas2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevisarMonografias">
+      <soap12:operation soapAction="http://tempuri.org/RevisarMonografias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevisarMonografias2">
+      <soap12:operation soapAction="http://tempuri.org/RevisarMonografias2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevisarMonografias2ATC">
+      <soap12:operation soapAction="http://tempuri.org/RevisarMonografias2ATC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarStockReceta">
+      <soap12:operation soapAction="http://tempuri.org/ConsultarStockReceta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMotivosDespachoPendiente">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerMotivosDespachoPendiente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarMotivoDespachoPendienteUsuario">
+      <soap12:operation soapAction="http://tempuri.org/GuardarMotivoDespachoPendienteUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarLotesArticulos">
+      <soap12:operation soapAction="http://tempuri.org/GuardarLotesArticulos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerLotesArticulos">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerLotesArticulos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarLotesDespachados">
+      <soap12:operation soapAction="http://tempuri.org/GuardarLotesDespachados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerLotesDespachados">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerLotesDespachados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoDocumentoRespaldo">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerTipoDocumentoRespaldo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarAuditoriaImpresionReceta">
+      <soap12:operation soapAction="http://tempuri.org/GuardarAuditoriaImpresionReceta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAuditoriaImpresionReceta">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerAuditoriaImpresionReceta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Farmacia">
+    <wsdl:port name="FarmaciaSoap" binding="tns:FarmaciaSoap">
+      <soap:address location="http://webservices.rayensalud.cl/Saydex.ServidorSiap.WebService/Farmacia.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FarmaciaSoap12" binding="tns:FarmaciaSoap12">
+      <soap12:address location="http://webservices.rayensalud.cl/Saydex.ServidorSiap.WebService/Farmacia.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
