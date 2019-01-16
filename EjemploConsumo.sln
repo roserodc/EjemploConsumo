@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjemploConsumo", "EjemploConsumo\EjemploConsumo.csproj", "{06854E3E-4996-4157-8D42-2D2CBB0C0A34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsumoF", "ConsumoF\ConsumoF.csproj", "{009A69D2-C8A3-4423-9695-5392FB248553}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadJson", "ReadJson\ReadJson.csproj", "{A9EB7AD9-E06D-49B4-A3A6-F03AD4BEEB6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{06854E3E-4996-4157-8D42-2D2CBB0C0A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06854E3E-4996-4157-8D42-2D2CBB0C0A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06854E3E-4996-4157-8D42-2D2CBB0C0A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06854E3E-4996-4157-8D42-2D2CBB0C0A34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{009A69D2-C8A3-4423-9695-5392FB248553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{009A69D2-C8A3-4423-9695-5392FB248553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{009A69D2-C8A3-4423-9695-5392FB248553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{009A69D2-C8A3-4423-9695-5392FB248553}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9EB7AD9-E06D-49B4-A3A6-F03AD4BEEB6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9EB7AD9-E06D-49B4-A3A6-F03AD4BEEB6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9EB7AD9-E06D-49B4-A3A6-F03AD4BEEB6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9EB7AD9-E06D-49B4-A3A6-F03AD4BEEB6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

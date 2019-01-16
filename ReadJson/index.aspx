@@ -10,14 +10,16 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Button ID="btncli" runat="server" Text="leer json cli" OnClick="btncli_Click"  />
+            <asp:Label ID="Label1" runat="server" Text="Cosumo de Json local , alojado disco C:"></asp:Label></br>
+            <asp:Button ID="btncli" runat="server" Text="JSON PRUEBA" OnClick="btncli_Click"  />
             <br />
             <asp:GridView ID="GridView1" runat="server"></asp:GridView>
         </div>
 
         </br>
         <div>
-            <asp:Button ID="btnfact" runat="server" Text="leer json fact" OnClick="btnfact_Click"  />
+            <asp:Label ID="Label2" runat="server" Text="Consumo Json Facturación alojado en URL Externo"></asp:Label></br>
+            <asp:Button ID="btnfact" runat="server" Text="JSON FACTURACIÓN " OnClick="btnfact_Click"  />
             <br />
             <asp:GridView ID="GridView2" runat="server"></asp:GridView>
         </div>
