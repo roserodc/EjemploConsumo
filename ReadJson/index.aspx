@@ -18,7 +18,7 @@
 
         </br>
         <div>
-            <asp:Label ID="Label2" runat="server" Text="Consumo Json Facturación(Json publico para pruebas) alojado en URL Externo"></asp:Label></br>
+            <asp:Label ID="Label2" runat="server" Text="Consumo Json Facturación(Json público para pruebas) alojado en URL Externo"></asp:Label></br>
             <asp:Button ID="btnfact" runat="server" Text="JSON FACTURACIÓN " OnClick="btnfact_Click"  />
             <br />
             <asp:GridView ID="GridView2" runat="server"></asp:GridView>

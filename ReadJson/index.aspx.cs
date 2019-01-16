@@ -37,8 +37,8 @@ namespace ReadJson
             using (var webClient = new WebClient())
             {
 
-                //string rawJSON = webClient.DownloadString("https://jsonplaceholder.typicode.com/photos");
-                string rawJSON = webClient.DownloadString("http://bill-guides.herokuapp.com/api/invoices-utn");
+                string rawJSON = webClient.DownloadString("https://jsonplaceholder.typicode.com/photos");
+                //string rawJSON = webClient.DownloadString("http://bill-guides.herokuapp.com/api/invoices-utn");
                 
                 //PhotoCollection photoCollection = JsonConvert.DeserializeObject<PhotoCollection>(rawJSON);
 
